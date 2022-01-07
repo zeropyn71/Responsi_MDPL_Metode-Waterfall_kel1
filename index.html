@@ -11,7 +11,7 @@
     <h1>
         Laporan Diskusi Kelompok I <br />
         Metodologi Desain Perangkat Lunak - VIII <br />
-        Metode DevOps
+        Metode Waterfall
     </h1>
     <br>
     <center>
@@ -45,7 +45,7 @@
     <hr>
     <br>
     <br>
-    <h2>Pengembangan Aplikasi Sistem Informasi<br>Manajemen Perpustakaan<br>Berbasis Web<br>Metode DevOps</h2>
+    <h2>Pengembangan Aplikasi Sistem Informasi<br>Manajemen Perpustakaan<br>Berbasis Web<br>Metode Waterfall</h2>
     <br>
     <hr>
     <br>
@@ -106,10 +106,9 @@
     </ol>
     <br>
     <br>
-    <h3>BAB II<br>PEMBAHASAN</h3>
+    <h3>BAB II<br>LANDASAN TEORI</h3>
     <br>
     <br>
-    <h4>2.1 Landasan Teori</h4>
     <ol><br>
         <li><strong>Buku</strong></li>
         <p>Buku adalah jendela ilmu pengetahuan, dimana kita bisa mendapatkan wawasan dan pengetahuan yang luas dengan membaca berbagai buku
@@ -166,68 +165,46 @@
        
     </ol>
     <br>
-    <h4>2.2 Metode Perancangan</h4>
+    <h3>BAB III<br>HASIL DAN PEMBAHASAN</h3>
     <ol>
-        <li>Metode DevOps</li>
-        <img src="sources/devops.png" width="520">
-            <p>Gambar 4. Metode DevOps</p>
-        <p>DevOps adalah seperangkat prosedur yang merupakan kombinasi antara proses pengembangan (development) 
-            dan Operasi (Operations). DevOps juga dapat diartikan sebagai studi konseptual tentang pegembangan 
-            dan pengiriman perangkat lunak ke dalam infrastruktur dengan mengambil suatu pendekatan kolaboratif 
-            dan integratif antara pengembang (develope) dan operasi perangkat lunak (Operation).  
-            Berikut tahap-tahap metode DevOps :</p>
+        <li>Metode Waterfall</li>
+        <img src="sources/Metode/waterfall.PNG" width="520">
+            <p>Gambar 4. Metode Waterfall</p>
+        <p>Metode Waterfall merupakan metode pengembangan perangkat lunak tertua sebab sifatnya yang natural. 
+            Metode Waterfall merupakan pendekatan SDLC paling awal yang digunakan untuk pengembangan perangkat lunak. 
+            Urutan dalam Metode Waterfall bersifat serial yang dimulai dari proses perencanaan, analisa, desain, dan 
+            implementasi pada sistem. 
+            Berikut tahap-tahap metode Waterfall :</p>
         <ol>
-            <li>Planning</li>
+            <li>Requirement Analysis</li>
             <p>Pada tahap perencanaan, proses
                 identifikasi tujuan dan persyaratan
                 untuk merancang dan mengembangkan perangkat lunak.</p>
-            <li>Develop</li>
-            <p>Setelah rencana dibuat, tim 
-                developer dapat mulai menulis kode yang 
-                dibutuhkan untuk mengembangkan produk.</p>
-            <li>Build</li>
-            <p>Setelah tim developer selesai
-                menulis kode yang dibutuhkan,
-                mereka akan memasukan kode
-                tersebut ke dalam shared code
-                repository</p>
-            <li>Test.</li>
-            <p>Langkah selanjutnya adalah melakukan
-                pengujian. Jika ada masalah yang ditemukan
-                pada fase ini, maka masalah tersebut akan
-                dikirim kembali ke tim developer untuk
-                diselesaikan</p>
-            <li>Deploy</li>
-            <p>Setelah production environment dibuat
-                dan dikonfigurasi maka versi terakhir
-                dari pengembangan yang telah
-                dilakukan akan diterapkan.</p>
-            <li>Operate</li>
-            <p>Operasi dalam siklus DevOps berkaitan
-                dengan konfigurasi dan pengelolaan
-                aplikasi perangkat lunak setelah penerapan.</p>
-            <li>Monitor</li>
-            <p>Pada tahap terakhir ini, tim IT operations akan
-                terus bekerja keras untuk memantau
-                infrastruktur, sistem, dan aplikasi</p>
-        </ol>
-        <h4>Kelebihan</h4>
-        <ol>
-            <li>Siklus pengembangan yang lebih pendek</li>
-            <li>Meningkatkan kualitas dan fleksibilitas</li>
-            <li>Biaya yang lebih efisien</li>
-            <li>Kontrol Resiko dan Pemulihan yang lebih baik</li>
-            <li>Dapat meningkatkan Praktik Keamanan</li>
-        </ol>
-        <h4>Kekurangan</h4>
-        <ol>
-            <li>Penerapan Metode DevOps harus merubah kebiasaan atau kebudayaan dalam pengembangan proyek</li>
-            <li>Membutuhkan Software Engineering yang ahli</li>
-            <li>Memerlukan kolaborasi yang kuat</li>
+            <li>System and Software Design</li>
+            <p>Informasi mengenai spesifikasi kebutuhan dari tahap Requirement Analysis selanjutnya di analisa 
+                pada tahap ini untuk kemudian diimplementasikan pada desain pengembangan. Perancangan desain dilakukan 
+                dengan tujuan membantu memberikan gambaran lengkap mengenai apa yang harus dikerjakan. 
+                Tahap ini juga akan membantu pengembang untuk menyiapkan kebutuhan hardware dalam pembuatan 
+                arsitektur sistem perangkat lunak yang akan dibuat secara keseluruhan.</p>
+            <li>Implementation and Unit Testing</li>
+            <p>Tahap implementation and unit testing merupakan tahap pemrograman. Pembuatan perangkat lunak 
+                dibagi menjadi modul-modul kecil yang nantinya akan digabungkan dalam tahap berikutnya. 
+                Disamping itu, pada fase ini juga dilakukan pengujian dan pemeriksaan terhadap fungsionalitas 
+                modul yang sudah dibuat, apakah sudah memenuhi kriteria yang diinginkan atau belum.</p>
+            <li>Integration and System Testing</li>
+            <p>Setelah seluruh unit atau modul yang dikembangkan dan diuji di tahap implementasi 
+                selanjutnya diintegrasikan dalam sistem secara keseluruhan. Setelah proses integrasi selesai, 
+                selanjutnya dilakukan pemeriksaan dan pengujian sistem secara keseluruhan untuk mengidentifikasi 
+                kemungkinan adanya kegagalan dan kesalahan sistem.</p>
+            <li>Operation and Maintenance</li>
+            <p>Pada tahap terakhir dalam Metode Waterfall, perangkat lunak yang sudah jadi dioperasikan 
+                pengguna dan dilakukan pemeliharaan. Pemeliharaan memungkinkan pengembang untuk melakukan 
+                perbaikan atas kesalahan yang tidak terdeteksi pada tahap-tahap sebelumnya. 
+                Pemeliharaan meliputi perbaikan kesalaha, perabikan implementasi unit sistem, dan 
+                peningkatan dan penyesuaian sistem sesuai dengan kebutuhan.</p>
         </ol>
     </ol>
     <br>
-    <h4>2.3 Hasil dan Pembahasan</h4>
     <br>
     <ol>
         <li><strong>Requirements Planning (Perencanaan)</strong></li><br>
@@ -292,7 +269,7 @@
             </ol>
         </ol>
         <br>
-        <li><strong>Tahap Design</strong></li><br>
+        <li><strong>Tahap System and Software Design</strong></li><br>
         <ol>
             <li>Diagram Jenjang</li>
             <p>Diagram Jenjang untuk sistem Perpustakaan Digital ini adalah sebagai berikut</p>
