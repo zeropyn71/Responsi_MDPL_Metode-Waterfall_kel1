@@ -1,0 +1,36 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+body{
+    font: 76% Times New Roman,sans-serif;
+    text-align:justify;
+    padding: 0 40vh;
+    line-height: 1.5;
+}
+h2, h3, h1{
+    text-align: center;
+    margin:5px 10px 10px;
+    font-size:20px;
+}
+h4 {
+    margin:5px 10px 10px;
+    font-size:medium;
+}
+p{
+    text-indent: 35px;
+}
+p, li{
+    margin:5px 10px 10px;
+    font-size: 13pt;
+}
+table {
+    font-size: 15px;
+}
+a{padding:5px; text-decoration:none; color:#000000;}
+.tab_struktur table,.tab_struktur tr,.tab_struktur th,.tab_struktur td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding-right: 25px;
+}
+
