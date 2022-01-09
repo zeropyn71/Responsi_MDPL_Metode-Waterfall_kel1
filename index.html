@@ -326,7 +326,7 @@
         <img src="sources/tabel/relasi_tabel.png" alt="" style="width: 870px" />
         <li>Struktur Tabel</li>
         <p>Dalam pengembangan sistem ini memerlukan beberapa tabel yang akan diolah untuk dijadikan suatu informasi yang dapat menghasilkan keluaran yang diperlukan.</p>
-        < type="a">
+        <ol type="a">
           <li>Tabel Buku</li>
           <table>
             <tr>
@@ -494,6 +494,87 @@
     <h2>BAB IV<br />IMPLEMENTASI KODE PROGRAM</h2>
     <br>
     <br>
+
+<p style="margin-left: -35px;">Kode Program: Halaman Login</p>
+<div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+    <xmp style="font-size: 10pt;">
+
+      <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Hugo 0.88.1" />
+    <title>Halaman Login · MyPerpus</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet" />
+  </head>
+  <body class="text-center">
+    <main class="form-signin">
+      <form method="POST" action="cek_login.php" >
+        <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" /> -->
+        <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
+        <p>Masukan Username dan Password Anda dengan Benar!</p>
+
+        <?php
+        if (isset($_GET['pesan'])) {
+          if ($_GET['pesan']=="gagal") {
+            echo "<div class='alert'>Username dan Password tidak sesuai!</div>";
+          }
+        }
+        ?>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="username" id="floatingText" placeholder="Username" required/>
+          <label for="floatingText">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required/>
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+        </div>
+        <div>
+          <button class="w-100 btn btn-lg btn-danger" type="submit" name="login">Sign in</button>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; Kelompok 1 | 2021–2021</p>
+      </form>
+    </main>
+  </body>
+</html>
+
+
+    </xmp>
+  </div>
+  <p style="margin-left: -35px;">Tampilan:</p> 
+  <img src="Implementasi/Halaman Login/Halaman Login.png" alt="" width="800px;">
+  <!-- Tampilan gambar --><br><br><br><br>
     
     <p style="margin-left: -35px;">Kode Program: Dashboard Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
@@ -672,9 +753,174 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
     </div>
     <p style="margin-left: -35px;">Tampilan:</p> 
     <img src="Implementasi/Halaman Anggota/Dashboard.png" alt="" width="800px;">
+    <!-- Tampilan gambar --><br><br><br><br>
+
+    <p style="margin-left: -35px;">Kode Program: Daftar Buku</p>
+    <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+        <xmp style="font-size: 10pt;">
+        <?php
+
+session_start();
+
+?>
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaksi | Anggota</title>
+  <!-- BOOTSTRAP STYLES-->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="../../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+    <!-- TABLE STYLES-->
+    <link href="../../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">
+                    Perpustakaan<h6>SMA N 1 Yogyakarta</h6>
+                </a>  
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+        <li class="text-center">
+                    <img src="../../assets/img/find_user.png" class="user-image img-responsive"/>
+          </li>
+        
+          
+                    <li>
+                        <a href="../dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table fa-3x"></i>Data<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="active-menu" href="daftar_buku.php">Daftar Buku</a>
+                            </li>
+                            <li>
+                                <a href="../transaksi/transaksi_buku.php">Transaksi</a>
+                            </li>
+                    </li>
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Daftar Buku</h2>
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                 <!-- <div class="panel panel-default"> -->
+                 <div class="panel-heading">
+                </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kode Buku</th>
+                                            <th>Judul Buku</th>
+                                            <th>Penulis Buku</th>
+                                            <th>Penerbit Buku</th>
+                                            <th>Tahun Terbit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        
+                                        include "../../../koneksi.php";
+                                        $no = 1;
+                                        $ambil = mysqli_query($koneksi,"SELECT*FROM tab_buku");
+                                        while ($data = mysqli_fetch_array($ambil)) {
+                                            ?>
+                                            <tr class="odd gradeX">
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $data['kode_buku']; ?></td>
+                                                <td><?php echo $data['judul_buku']; ?></td>
+                                                <td><?php echo $data['penulis_buku']; ?></td>
+                                                <td><?php echo $data['penerbit_buku']; ?></td>
+                                                <td><?php echo $data['tahun_terbit']; ?></td>
+                                            <?php
+                                        }
+                                        ?>                                        
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                 <!-- /. ROW -->         
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../../assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="../../assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="../../assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="../../assets/js/morris/morris.js"></script>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="../../assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="../../assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#dataTables-example").dataTable();
+      });
+    </script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="../../assets/js/custom.js"></script>
+    
+    
+   
+</body>
+</html>
+
+        </xmp>
+    </div>
+
+       <p style="margin-left: -35px;">Tampilan:</p>
+       <img src="Implementasi/Halaman Anggota/Data Buku.png" alt="" width="800px;">
     
       <!-- Tampilan gambar --><br><br><br><br>
-    <p style="margin-left: -35px;">Kode Program: Halaman Transaksi Anggota</p>
+    <p style="margin-left: -35px;">Kode Program: Halaman Transaksi Pinjam Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
         <xmp style="font-size: 10pt;">
         <?php
@@ -853,7 +1099,7 @@ font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjus
     <img src="Implementasi/Halaman Anggota/Data Transaksi.png" width="800px;" alt="">
     
       <!-- Tampilan gambar --><br><br><br><br>
-    <p style="margin-left: -35px;">Kode Program: Transaksi Peminjaman</p>
+    <p style="margin-left: -35px;">Kode Program: Halaman Riwayat Transaksi Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
         <xmp style="font-size: 10pt;">
       <?php
@@ -1052,171 +1298,6 @@ font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjus
        <img src="Design/Halaman Anggota/transaksi_anggota.png" alt="" width="800px;">
     
       <!-- Tampilan gambar --><br><br><br><br>
-    <p style="margin-left: -35px;">Kode Program: Daftar Buku</p>
-    <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 10pt;">
-        <?php
-
-session_start();
-
-?>
-
-
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transaksi | Anggota</title>
-  <!-- BOOTSTRAP STYLES-->
-    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="../../assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
-    <link href="../../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="../../assets/css/custom.css" rel="stylesheet" />
-    <!-- TABLE STYLES-->
-    <link href="../../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-</head>
-<body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="">
-                    Perpustakaan<h6>SMA N 1 Yogyakarta</h6>
-                </a>  
-            </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-        </nav>   
-           <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-        <li class="text-center">
-                    <img src="../../assets/img/find_user.png" class="user-image img-responsive"/>
-          </li>
-        
-          
-                    <li>
-                        <a href="../dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-table fa-3x"></i>Data<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a class="active-menu" href="daftar_buku.php">Daftar Buku</a>
-                            </li>
-                            <li>
-                                <a href="../transaksi/transaksi_buku.php">Transaksi</a>
-                            </li>
-                    </li>
-                </ul>
-               
-            </div>
-            
-        </nav>  
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                     <h2>Daftar Buku</h2>
-                    </div>
-                </div>              
-                 <!-- /. ROW  -->
-                 <!-- <div class="panel panel-default"> -->
-                 <div class="panel-heading">
-                </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Kode Buku</th>
-                                            <th>Judul Buku</th>
-                                            <th>Penulis Buku</th>
-                                            <th>Penerbit Buku</th>
-                                            <th>Tahun Terbit</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        
-                                        include "../../../koneksi.php";
-                                        $no = 1;
-                                        $ambil = mysqli_query($koneksi,"SELECT*FROM tab_buku");
-                                        while ($data = mysqli_fetch_array($ambil)) {
-                                            ?>
-                                            <tr class="odd gradeX">
-                                                <td><?php echo $no++; ?></td>
-                                                <td><?php echo $data['kode_buku']; ?></td>
-                                                <td><?php echo $data['judul_buku']; ?></td>
-                                                <td><?php echo $data['penulis_buku']; ?></td>
-                                                <td><?php echo $data['penerbit_buku']; ?></td>
-                                                <td><?php echo $data['tahun_terbit']; ?></td>
-                                            <?php
-                                        }
-                                        ?>                                        
-                                    </tbody>
-                                </table>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                 <!-- /. ROW -->         
-    </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
-        </div>
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="../../assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="../../assets/js/jquery.metisMenu.js"></script>
-     <!-- MORRIS CHART SCRIPTS -->
-     <script src="../../assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="../../assets/js/morris/morris.js"></script>
-    <!-- DATA TABLE SCRIPTS -->
-    <script src="../../assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="../../assets/js/dataTables/dataTables.bootstrap.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#dataTables-example").dataTable();
-      });
-    </script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="../../assets/js/custom.js"></script>
-    
-    
-   
-</body>
-</html>
-
-        </xmp>
-    </div>
-
-       <p style="margin-left: -35px;">Tampilan:</p>
-       <img src="Design/Halaman Admin/data_buku.png" alt="" width="800px;">
-    
-      <!-- Tampilan gambar --><br><br><br><br>
     <p style="margin-left: -35px;">Kode Program: Dashboard Petugas </p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
         <xmp style="font-size: 10pt;">
@@ -1390,6 +1471,182 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
     <p style="margin-left: -35px;">Tampilan:</p>
     <img src="Design/Halaman Admin/dashboard_admin.png" alt="" width="800px;">
        <!-- Tampilan gambar --><br><br><br><br>
+
+       <p style="margin-left: -35px;">Kode Program: Halaman Data Buku Petugas</p>
+<div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+    <xmp style="font-size: 10pt;">
+
+      <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Buku | Operator</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="../../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../../assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="../../../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../../assets/css/custom.css" rel="stylesheet" />
+    <!-- TABLE STYLES-->
+    <link href="../../../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">
+                    Perpustakaan<h6>SMA N 1 Yogyakarta</h6>
+                </a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="../../../assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+				
+					
+                    <li>
+                        <a href="../../dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table fa-3x"></i>Data<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="active-menu" href="data_buku.php">Data Buku</a>
+                            </li>            
+                            <li>
+                                <a href="../anggota/data_anggota.php">Data Anggota</a>
+                            </li>
+                            <li>
+                                <a href="../petugas/data_petugas.php">Data Petugas</a>
+                            </li>
+                            <li>
+                                <a href="../transaksi/transaksi_buku.php">Data Transaksi</a>
+                            </li>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Daftar Buku</h2>
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                 <div class="panel panel-default">
+                <div class="panel-heading">
+                <a href="tambah_buku.php" class="btn btn-primary">+ Tambah Data Buku</a>
+                </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kode Buku</th>
+                                            <th>Judul Buku</th>
+                                            <th>Penulis Buku</th>
+                                            <th>Penerbit Buku</th>
+                                            <th>Tahun Terbit</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        
+                                        include "../../../../koneksi.php";
+                                        $no = 1;
+                                        $ambil = mysqli_query($koneksi,"SELECT*FROM tab_buku");
+                                        while ($data = mysqli_fetch_array($ambil)) {
+                                            ?>
+                                            <tr class="odd gradeX">
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $data['kode_buku']; ?></td>
+                                                <td><?php echo $data['judul_buku']; ?></td>
+                                                <td><?php echo $data['penulis_buku']; ?></td>
+                                                <td><?php echo $data['penerbit_buku']; ?></td>
+                                                <td><?php echo $data['tahun_terbit']; ?></td>
+                                                <td>
+                                                    <a href="edit_buku.php?id=<?php echo $data['kode_buku']; ?>" 
+                                                      class="btn btn-warning">Edit</a>
+                                                    <a href="hapus_buku.php?id=<?php echo $data['kode_buku']; ?>" 
+                                                      onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" 
+                                                      class="btn btn-danger">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>                                        
+                                    </tbody>                                                   
+                                </table>
+                                <a href="../laporan/laporan_buku.php" 
+                                target="_blank" class="btn btn-success">
+                                <i class="fa fa-print"> Cetak </i></a>
+                            </div>                           
+                        </div>
+                    </div>
+                 <!-- /. ROW -->         
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../../../assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="../../../assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="../../../assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="../../../assets/js/morris/morris.js"></script>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="../../../assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="../../../assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#dataTables-example").dataTable();
+      });
+    </script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="../../../assets/js/custom.js"></script>
+    
+    
+   
+</body>
+</html>
+
+
+    </xmp>
+  </div>
+  <p style="margin-left: -35px;">Tampilan:</p> 
+  <img src="Implementasi/Halaman Petugas/Data Buku.png" alt="" width="800px;">
+  <!-- Tampilan gambar --><br><br><br><br>
+
     <p style="margin-left: -35px;">Kode Program: Data Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
         <xmp style="font-size: 10pt;">
@@ -1743,7 +2000,410 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
     </div>
     <p style="margin-left: -35px;">Tampilan:</p>
     <img src="Design/Halaman Admin/data_petugas.png" alt="" width="800px;">
-      <!-- Tampilan gambar -->
+       <!-- Tampilan gambar --><br><br><br><br>
+
+       <p style="margin-left: -35px;">Kode Program: Halaman Data Transaksi Pinjam Petugas</p>
+<div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+    <xmp style="font-size: 10pt;">
+
+      <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Transaksi | Operator</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="../../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../../assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="../../../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../../assets/css/custom.css" rel="stylesheet" />
+    <!-- TABLE STYLES-->
+    <link href="../../../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">
+                    Perpustakaan<h6>SMA N 1 Yogyakarta</h6>
+                </a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="../../../assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+				
+					
+                    <li>
+                        <a href="../../dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table fa-3x"></i>Data<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../buku/data_buku.php">Data Buku</a>
+                            </li>
+                            <li>
+                                <a href="../anggota/data_anggota.php">Data Anggota</a>
+                            </li>
+                            <li>
+                                <a href="../petugas/data_petugas.php">Data Petugas</a>
+                            </li>
+                            <li>
+                                <a class="active-menu" href="transaksi_buku.php">Data Transaksi</a>
+                            </li>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Daftar Transaksi</h2>
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                 <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5>Daftar transaksi pinjam</h5>
+                     <a href="transaksi_pinjam.php" class="btn btn-primary">+ Tambah Transaksi</a>
+                     <a href="transaksi_kembali.php" class="btn btn-danger">Transaksi Kembali</a>
+                </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kode Buku</th>
+                                            <th>Judul Buku</th>
+                                            <th>No Anggota</th>
+                                            <th>Nama Anggota</th>
+                                            <th>No Petugas</th>
+                                            <th>Nama Petugas</th>
+                                            <th>Tanggal Pinjam</th>
+                                            <th>Jatuh Tempo</th>
+                                            <th>Terlambat (Denda)</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        
+                                        include "../../../../koneksi.php";
+                                        $no = 1;
+                                        $ambil = mysqli_query($koneksi,"SELECT*FROM tab_transaksi
+                                        INNER JOIN tab_buku ON tab_buku.kode_buku = tab_transaksi.kode_buku
+                                        INNER JOIN tab_anggota ON tab_anggota.no_anggota = tab_transaksi.no_anggota
+                                        INNER JOIN tab_petugas ON tab_petugas.no_petugas = tab_transaksi.no_petugas
+                                        INNER JOIN tab_pinjam ON tab_pinjam.kode_pinjam = tab_transaksi.kode_pinjam
+                                        WHERE status='Pinjam'");
+                                        while ($data = mysqli_fetch_array($ambil)) {
+                                            ?>
+                                            <tr class="odd gradeX">
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $data['kode_buku']; ?></td>
+                                                <td><?php echo $data['judul_buku']; ?></td>
+                                                <td><?php echo $data['no_anggota']; ?></td>
+                                                <td><?php echo $data['nama_anggota']; ?></td>
+                                                <td><?php echo $data['no_petugas']; ?></td>
+                                                <td><?php echo $data['nama_petugas']; ?></td>
+                                                <td><?php echo $data['tgl_pinjam']; ?></td>
+                                                <td><?php echo $data['jatuh_tempo']; ?></td>
+                                                <td>
+                                                <?php
+
+                                                    include_once "terlambat_kembali.php";
+
+                        	                        $denda = 1000;
+
+                        	                        $tanggal_dateline = $data['jatuh_tempo'];
+
+                        	                        $jatuh_tempo=date('Y-m-d');
+
+                        	                        $lambat = terlambat($tanggal_dateline, $jatuh_tempo);
+
+                        	                        $denda1 = $lambat*$denda;
+
+                        	                        if ($lambat>0) {
+                        		                        echo "<font color='red'>$lambat hari<br>(Rp $denda1) </font>";
+                        	                        }else{
+                        		                        echo $lambat . " hari";
+                        	                        }
+
+                        	                    ?>
+                                                </td>
+                                                <td>
+                                                    <a href="kembali.php?id=<?php echo $data['id_transaksi']; ?>"
+                                                      class="btn btn-warning">Kembalikan</a>
+                                                    <a href="hapus_transaksi.php?id=<?php echo $data['id_transaksi']; ?>" 
+                                                      class="btn btn-danger">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>                                        
+                                    </tbody>
+                                </table>
+                                <a href="../laporan/laporan_pinjam.php" target="_blank" 
+                                class="btn btn-success"><i class="fa fa-print"> Cetak </i></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                 <!-- /. ROW -->         
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../../../assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="../../../assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="../../../assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="../../../assets/js/morris/morris.js"></script>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="../../../assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="../../../assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#dataTables-example").dataTable();
+      });
+    </script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="../../../assets/js/custom.js"></script>
+    
+    
+   
+</body>
+</html>
+
+
+    </xmp>
+  </div>
+  <p style="margin-left: -35px;">Tampilan:</p> 
+  <img src="Implementasi/Halaman Petugas/Data Transaksi.png" alt="" width="800px;">
+  <!-- Tampilan gambar --><br><br><br><br>
+
+   <p style="margin-left: -35px;">Kode Program: Halaman Data Transaksi Kembali Petugas</p>
+   <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+       <xmp style="font-size: 10pt;">
+
+        <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Transaksi | Operator</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="../../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../../assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="../../../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../../assets/css/custom.css" rel="stylesheet" />
+    <!-- TABLE STYLES-->
+    <link href="../../../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">
+                    Perpustakaan<h6>SMA N 1 Yogyakarta</h6>
+                </a>  
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="../../../assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+				
+					
+                    <li>
+                        <a href="../../dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table fa-3x"></i>Data<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../buku/data_buku.php">Data Buku</a>
+                            </li>
+                            <li>
+                                <a href="../anggota/data_anggota.php">Data Anggota</a>
+                            </li>
+                            <li>
+                                <a href="../petugas/data_petugas.php">Data Petugas</a>
+                            </li>
+                            <li>
+                                <a class="active-menu" href="transaksi_buku.php">Data Transaksi</a>
+                            </li>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Daftar Transaksi</h2>
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                    <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5>Daftar transaksi kembali</h5>
+                </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kode Buku</th>
+                                            <th>Judul Buku</th>
+                                            <th>No Anggota</th>
+                                            <th>Nama Anggota</th>
+                                            <th>No Petugas</th>
+                                            <th>Nama Petugas</th>
+                                            <th>Tanggal Pinjam</th>
+                                            <th>Jatuh Tempo</th>
+                                            <th>Tanggal Kembali</th>
+                                            <th>Terlambat (Denda)</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        
+                                        include "../../../../koneksi.php";
+                                        $no = 1;
+                                        $ambil = mysqli_query($koneksi,"SELECT*FROM tab_transaksi 
+                                        INNER JOIN tab_buku ON tab_buku.kode_buku = tab_transaksi.kode_buku
+                                        INNER JOIN tab_anggota ON tab_anggota.no_anggota = tab_transaksi.no_anggota
+                                        INNER JOIN tab_petugas ON tab_petugas.no_petugas = tab_transaksi.no_petugas
+                                        INNER JOIN tab_pinjam ON tab_pinjam.kode_pinjam = tab_transaksi.kode_pinjam
+                                        INNER JOIN tab_kembali ON tab_kembali.kode_kembali = tab_transaksi.kode_kembali
+                                        WHERE status='Kembali'");
+                                        while ($data = mysqli_fetch_array($ambil)) {
+                                            ?>
+                                            <tr class="odd gradeX">
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $data['kode_buku']; ?></td>
+                                                <td><?php echo $data['judul_buku']; ?></td>
+                                                <td><?php echo $data['no_anggota']; ?></td>
+                                                <td><?php echo $data['nama_anggota']; ?></td>
+                                                <td><?php echo $data['no_petugas']; ?></td>
+                                                <td><?php echo $data['nama_petugas']; ?></td>
+                                                <td><?php echo $data['tgl_pinjam']; ?></td>
+                                                <td><?php echo $data['jatuh_tempo']; ?></td>
+                                                <td><?php echo $data['tgl_kembali']; ?></td>
+                                                <td><?php echo $data['denda']; ?></td>
+                                                <td>
+                                                    <a href="hapus_transaksi.php?id=<?php echo $data['id_transaksi']; ?>" 
+                                                      class="btn btn-danger">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>                                        
+                                    </tbody>
+                                </table>
+                                <a href="transaksi_buku.php" class="btn btn-danger">Kembali</a>
+                                <a href="../laporan/laporan_kembali.php" target="_blank" 
+                                class="btn btn-success"><i class="fa fa-print"> Cetak </i></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                 <!-- /. ROW -->         
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../../../assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="../../../assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="../../../assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="../../../assets/js/morris/morris.js"></script>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="../../../assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="../../../assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#dataTables-example").dataTable();
+      });
+    </script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="../../../assets/js/custom.js"></script>
+    
+    
+   
+</body>
+</html>
+
+
+       </xmp>
+     </div>
+     <p style="margin-left: -35px;">Tampilan:</p> 
+     <img src="Implementasi/Halaman Petugas/Data Transaksi Kembali.png" alt="" width="800px;">
+     <!-- Tampilan gambar --><br><br><br><br>
 
     <br>
     <br>
