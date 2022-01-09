@@ -497,7 +497,7 @@
     
     <p style="margin-left: -35px;">Kode Program: Dashboard Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;"> 
+        <xmp style="font-size: 10pt;"> 
       <?php
 
 session_start();
@@ -521,11 +521,12 @@ session_start();
     <!-- TABLE STYLES-->
     <link href="../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 </head>
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-cls-top " 
+        role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                          data-target=".sidebar-collapse">
@@ -672,10 +673,10 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
     <p style="margin-left: -35px;">Tampilan:</p> 
     <img src="Implementasi/Halaman Anggota/Dashboard.png" alt="" width="800px;">
     
-      <!-- Tampilan gambar -->
-    <p style="margin-left: -35px;">Kode Program: Histori Pengembalian</p>
+      <!-- Tampilan gambar --><br><br><br><br>
+    <p style="margin-left: -35px;">Kode Program: Halaman Transaksi Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;">
+        <xmp style="font-size: 10pt;">
         <?php
 
 session_start();
@@ -849,12 +850,12 @@ font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjus
         </xmp>
     </div>
     <p style="margin-left: -35px;">Tampilan:</p>
-    <img src="Design/Halaman Admin/transaksi_kembali.PNG" width="800px;" alt="">
+    <img src="Implementasi/Halaman Anggota/Data Transaksi.png" width="800px;" alt="">
     
-      <!-- Tampilan gambar -->
+      <!-- Tampilan gambar --><br><br><br><br>
     <p style="margin-left: -35px;">Kode Program: Transaksi Peminjaman</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;">
+        <xmp style="font-size: 10pt;">
       <?php
 
 session_start();
@@ -1050,10 +1051,10 @@ font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjus
        <p style="margin-left: -35px;">Tampilan:</p>
        <img src="Design/Halaman Anggota/transaksi_anggota.png" alt="" width="800px;">
     
-      <!-- Tampilan gambar -->
+      <!-- Tampilan gambar --><br><br><br><br>
     <p style="margin-left: -35px;">Kode Program: Daftar Buku</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;">
+        <xmp style="font-size: 10pt;">
         <?php
 
 session_start();
@@ -1215,10 +1216,10 @@ font-size: 16px;"><a href="../logout.php" class="btn btn-danger square-btn-adjus
        <p style="margin-left: -35px;">Tampilan:</p>
        <img src="Design/Halaman Admin/data_buku.png" alt="" width="800px;">
     
-      <!-- Tampilan gambar -->
+      <!-- Tampilan gambar --><br><br><br><br>
     <p style="margin-left: -35px;">Kode Program: Dashboard Petugas </p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;">
+        <xmp style="font-size: 10pt;">
         <?php
 session_start();
 ?>
@@ -1271,7 +1272,7 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
         
           
                     <li>
-                        <a class="active-menu"  href="dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                      <a class="active-menu"  href="dashboard.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-table fa-3x"></i>Data<span class="fa arrow"></span></a>
@@ -1388,10 +1389,10 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
     </div>
     <p style="margin-left: -35px;">Tampilan:</p>
     <img src="Design/Halaman Admin/dashboard_admin.png" alt="" width="800px;">
-       <!-- Tampilan gambar -->
+       <!-- Tampilan gambar --><br><br><br><br>
     <p style="margin-left: -35px;">Kode Program: Data Anggota</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;">
+        <xmp style="font-size: 10pt;">
         <?php
 
 session_start();
@@ -1516,8 +1517,9 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
                                                 <td><?php echo $data['username']; ?></td>
                                                 <td><?php echo $data['ulang_pass']; ?></td>
                                                 <td>
-                                                    <a href="edit_anggota.php?id=<?php echo $data['no_anggota']; ?>" class="btn btn-warning">Edit</a>
-                                                    <a href="hapus_anggota.php?id=<?php echo $data['no_anggota']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="btn btn-danger">Hapus</a>
+                <a href="edit_anggota.php?id=<?php echo $data['no_anggota']; ?>" class="btn btn-warning">Edit</a>
+                <a href="hapus_anggota.php?id=<?php echo $data['no_anggota']; ?>" 
+                onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="btn btn-danger">Hapus</a>
                                                 </td>
                                             </tr>
                                             <?php
@@ -1570,10 +1572,10 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
     <p style="margin-left: -35px;">Tampilan:</p>
     <img src="Design/Halaman Admin/data_anggota.png" alt="" width="800px;">
     
-       <!-- Tampilan gambar -->
+       <!-- Tampilan gambar --><br><br><br><br>
     <p style="margin-left: -35px;">Kode Program: Data Petugas</p>
     <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
-        <xmp style="font-size: 12pt;">
+        <xmp style="font-size: 10pt;">
         <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -1685,11 +1687,11 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
                                                 <td><?php echo $data['username']; ?></td>
                                                 <td><?php echo $data['ulang_pass']; ?></td>
                                                 <td>
-                                                    <a href="edit_petugas.php?id=<?php echo $data['no_petugas']; ?>" 
-                                                      class="btn btn-warning">Edit</a>
-                                                    <a href="hapus_petugas.php?id=<?php echo $data['no_petugas']; ?>"
-                                                     onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" 
-                                                     class="btn btn-danger">Hapus</a>
+                                              <a href="edit_petugas.php?id=<?php echo $data['no_petugas']; ?>" 
+                                                class="btn btn-warning">Edit</a>
+                                              <a href="hapus_petugas.php?id=<?php echo $data['no_petugas']; ?>"
+                                                onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" 
+                                                class="btn btn-danger">Hapus</a>
                                                 </td>
                                             </tr>
                                             <?php
