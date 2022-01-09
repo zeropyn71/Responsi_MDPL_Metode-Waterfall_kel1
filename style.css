@@ -8,14 +8,14 @@ body{
     padding: 0 40vh;
     line-height: 1.5;
 }
-h2, h3, h1{
+h2, h1{
     text-align: center;
     margin:5px 10px 10px;
     font-size:20px;
 }
-h4 {
+h3 {
     margin:5px 10px 10px;
-    font-size:medium;
+    font-size: 14pt;
 }
 p{
     text-indent: 35px;
