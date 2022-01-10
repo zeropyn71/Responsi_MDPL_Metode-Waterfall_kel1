@@ -554,8 +554,8 @@
           <label for="floatingText">Username</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required/>
-          <label for="floatingPassword">Password</label>
+    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password"required/>
+        <label for="floatingPassword">Password</label>
         </div>
 
         <div class="checkbox mb-3">
@@ -1948,7 +1948,7 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
                                               <a href="edit_petugas.php?id=<?php echo $data['no_petugas']; ?>" 
                                                 class="btn btn-warning">Edit</a>
                                               <a href="hapus_petugas.php?id=<?php echo $data['no_petugas']; ?>"
-                                                onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" 
+                                          onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" 
                                                 class="btn btn-danger">Hapus</a>
                                                 </td>
                                             </tr>
@@ -2149,7 +2149,7 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
                         	                        $denda1 = $lambat*$denda;
 
                         	                        if ($lambat>0) {
-                        		                        echo "<font color='red'>$lambat hari<br>(Rp $denda1) </font>";
+                        		                  echo "<font color='red'>$lambat hari<br>(Rp $denda1)</font>";
                         	                        }else{
                         		                        echo $lambat . " hari";
                         	                        }
@@ -2159,7 +2159,8 @@ font-size: 16px;"><a href="../../logout.php" class="btn btn-danger square-btn-ad
                                                 <td>
                                                     <a href="kembali.php?id=<?php echo $data['id_transaksi']; ?>"
                                                       class="btn btn-warning">Kembalikan</a>
-                                                    <a href="hapus_transaksi.php?id=<?php echo $data['id_transaksi']; ?>" 
+                                            <a href="hapus_transaksi.php?id=<?php echo $data['id_transaksi']
+                                            ;?>" 
                                                       class="btn btn-danger">Hapus</a>
                                                 </td>
                                             </tr>
